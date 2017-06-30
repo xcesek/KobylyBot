@@ -78,7 +78,6 @@ function sendTypingOff(recipientId) {
 }
 
 function sendWithTyping(recipientId, messageData) {
-  sendReadReceipt(recipientId);
   sendTypingOn(recipientId);
   setTimeout(function () {
     sendTypingOff(recipientId);
