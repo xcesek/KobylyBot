@@ -1,6 +1,6 @@
 {
     "appSecret": "861f50c9b91e84e2a292e9f4375f748a",
     "pageAccessToken": "EAAJOlFljviQBACo4caMcfSX5hZCIUeJtoKIZAA7UT3RvkCEBdhrHJREpYLZBLalxx6ti9Vh4NdLqEonHXfcLMbcOe6beGdBwUyZCV0BeZB2B8mf1ZAORsTHfqhZCyt68RkDZCnvDS8VPUZBtFDFMcYvwWQc8HOvCdfUmD7P6dvwMomQZDZD",
-    "validationToken": "",
-    "serverURL": ""
+    "validationToken": "st4NBFwvQGE3PJGISGkq",
+    "serverURL": "https://kobylybot.azurewebsites.net"
 }
