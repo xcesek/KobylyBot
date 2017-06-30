@@ -1,7 +1,7 @@
 {
-  "name": "messenger-get-started",
+  "name": "kobyly-bot",
   "version": "1.0.0",
-  "description": "Get started example for Messenger Platform",
+  "description": "Chat bot for Kobyly based on Messenger Platform",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fbsamples/messenger-platform-samples.git"
+    "url": "https://github.com/xcesek/KobylyBot.git"
   },
-  "author": "Facebook",
-  "license": "ISC",
+  "author": "Pavol Cesek",
+  "license": "Apache License",
   "dependencies": {
     "body-parser": "^1.15.0",
     "config": "^1.20.4",
