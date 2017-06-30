@@ -7,5 +7,9 @@ var userData = [];
 
 exports.processTextMessage = function (messageText, senderID) {
 
-    sendApi.sendTextMessage(senderID, "Ok, got it. You just came wrote " + messageText);
+    if (messageText.contains('omsa')) {
+        sendApi.sendQuickReply(senderID);
+    } else {
+        sendApi.sendTextMessage(senderID, "Nerozumiem, čo tým myslíte. " );
+    }    
 };

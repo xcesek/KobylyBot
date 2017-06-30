@@ -78,13 +78,14 @@ function sendTypingOff(recipientId) {
 }
 
 function sendWithTyping(recipientId, messageData) {
+  sendReadReceipt(recipientId);
   sendTypingOn(recipientId);
   setTimeout(function () {
     sendTypingOff(recipientId);
     setTimeout(function () {
       callSendAPI(messageData)
     },
-      800);
+      1000);
   }, 4000);
 }
 
@@ -119,17 +120,17 @@ module.exports = {
         id: recipientId
       },
       message: {
-        text: "What's your current status?",
+        text: "Rozpis sv. omší",
         quick_replies: [
           {
             "content_type": "text",
-            "title": "ARRIVE",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ARRIVE"
+            "title": "Dnes",
+            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_MASS_TODAY"
           },
           {
             "content_type": "text",
-            "title": "EXIT",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_EXIT"
+            "title": "Zajtra",
+            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_MASS_TOMOROW"
           }
         ]
       }
