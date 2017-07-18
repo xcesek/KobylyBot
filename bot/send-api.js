@@ -77,15 +77,36 @@ function sendTypingOff(recipientId) {
   callSendAPI(messageData);
 }
 
-function sendWithTyping(recipientId, messageData) {
-  sendTypingOn(recipientId);
-  setTimeout(function () {
-    sendTypingOff(recipientId);
-    setTimeout(function () {
-      callSendAPI(messageData)
+/*
+   * Send a read receipt to indicate the message has been read
+   *
+   */
+function sendReadReceipt(recipientId) {
+  console.log("Sending a read receipt to mark message as seen");
+
+  var messageData = {
+    recipient: {
+      id: recipientId
     },
-      1000);
-  }, 4000);
+    sender_action: "mark_seen"
+  };
+
+  callSendAPI(messageData);
+}
+
+function sendWithTyping(recipientId, messageData) {
+
+  sendReadReceipt(recipientId);
+  setTimeout(function () {
+    sendTypingOn(recipientId);
+    setTimeout(function () {
+      sendTypingOff(recipientId);
+      setTimeout(function () {
+        callSendAPI(messageData);
+      }, 10);
+    }, 10);
+  }, 10);
+
 }
 
 
@@ -102,7 +123,7 @@ module.exports = {
       },
       message: {
         text: messageText,
-        metadata: "DEVELOPER_DEFINED_METADATA"
+        metadata: "NORMAL_RESPONSE"
       }
     };
 
@@ -119,40 +140,23 @@ module.exports = {
         id: recipientId
       },
       message: {
-        text: "Rozpis sv. omší",
+        text: "Najbližšie sv. omše:",
         quick_replies: [
           {
             "content_type": "text",
             "title": "Dnes",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_MASS_TODAY"
+            "payload": "QUICK_MASS_TODAY"
           },
           {
             "content_type": "text",
             "title": "Zajtra",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_MASS_TOMOROW"
+            "payload": "QUICK_MASS_TOMOROW"
           }
         ]
       }
     };
 
     sendWithTyping(recipientId, messageData);
-  },
-
-  /*
-   * Send a read receipt to indicate the message has been read
-   *
-   */
-  sendReadReceipt: function (recipientId) {
-    console.log("Sending a read receipt to mark message as seen");
-
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      sender_action: "mark_seen"
-    };
-
-    callSendAPI(messageData);
   },
 
 

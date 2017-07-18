@@ -1,6 +1,7 @@
 {
     "appSecret": "861f50c9b91e84e2a292e9f4375f748a",
-    "pageAccessToken": "EAAJOlFljviQBACo4caMcfSX5hZCIUeJtoKIZAA7UT3RvkCEBdhrHJREpYLZBLalxx6ti9Vh4NdLqEonHXfcLMbcOe6beGdBwUyZCV0BeZB2B8mf1ZAORsTHfqhZCyt68RkDZCnvDS8VPUZBtFDFMcYvwWQc8HOvCdfUmD7P6dvwMomQZDZD",
+    "pageAccessToken": "EAAJOlFljviQBADcX5ZBvAwxKXgSSMiCej9uvYZCN4APGOF2HWc48vWAdVg98ioGUmInSLfylSOA1dRlDBZAhXpJm0tuKwG7aVishLcwipqEpI1PR0yTvmD9ZBeagR9sU5sjZAngbrevDtq1r96rf5mHP3ZBqKIL1pSSXYCnwivFgZDZD",
     "validationToken": "st4NBFwvQGE3PJGISGkq",
-    "serverURL": "https://kobylybot.azurewebsites.net"
+    "serverURL": "https://1c03c7b0.ngrok.io"
+    // "serverURL": "https://kobylybot.azurewebsites.net"
 }

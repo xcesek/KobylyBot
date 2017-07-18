@@ -26,6 +26,7 @@ module.exports = {
         console.log("Received message for user %d and page %d at %d with message:", senderID, recipientID, timeOfMessage);
         console.log(JSON.stringify(message));
 
+        var isEcho = message.is_echo;
         var messageId = message.mid;
         var appId = message.app_id;
         var metadata = message.metadata;
@@ -36,16 +37,21 @@ module.exports = {
         var quickReply = message.quick_reply;
 
 
-        if (quickReply) {
+        if (isEcho) {
+            // Just logging message echoes to console
+            console.log("Received echo for message %s and app %d with metadata %s", 
+            messageId, appId, metadata);
+            return;
+        } else if (quickReply) {
             var quickReplyPayload = quickReply.payload;
             console.log("Quick reply for message %s with payload %s", messageId, quickReplyPayload);
-            bot.respondToQuickReply(messageText, senderID);
+            bot.respondToQuickReply(messageText, senderID, quickReplyPayload);
 
         } else if (messageText) {
             bot.processTextMessage(messageText, senderID);
 
         } else if (messageAttachments) {
-            sendApi.sendTextMessage(senderID, "Thanks, I've received your attachment. But actually, I am not sure, if I can process it :)");
+            sendApi.sendTextMessage(senderID, "Ó, ďakujem za like, obrazok, alebo inú prílohu. Ale pravdupovediac, nerozumiem jej. :)");
         }
     },
 
